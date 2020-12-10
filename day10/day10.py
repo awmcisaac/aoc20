@@ -18,9 +18,9 @@ with open("input.txt") as f:
     
     perms = 1
     pointer = 0
-    coefs = [1,1,2,4,7,11,24] # this is some pattern, couldn't figure it out
-    for i in range(len(nums) - 1):
-        if nums[i+1] - nums[i] == 3:
-            perms *= coefs[i-pointer]
-            pointer = i+1
+    coefs = [1,1,2,4,7,13,24] # tribonacci numbers!
+    for (idx, (a,b)) in enumerate(zip(nums, nums[1:])):
+        if b - a == 3:
+            perms *= coefs[idx-pointer]
+            pointer = idx+1
     print("Part 2:", perms)
